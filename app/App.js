@@ -19,6 +19,7 @@ import {
   UserScreen,
   HotelDetailScreen
 } from './screens';
+import { View, Text, SafeAreaView, StatusBar } from 'react-native';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -87,16 +88,34 @@ const AppContainer = createAppContainer(
     },
     {
       initialRouteName: 'TABS',
-      headerMode: 'float',
+      // headerMode: 'float',
       defaultNavigationOptions: {
-        headerStyle: { color: '#000', elevation: 0 },
-        headerTitle: 'Traveling'
+        header: null
       }
+
+      // defaultNavigationOptions: {
+      //   headerStyle: { color: '#000', elevation: 0 },
+      //   headerTitle: 'Traveling'
+      // }
     }
   )
 );
+
 const App = () => {
-  return <AppContainer />;
+  return (
+    <React.Fragment>
+      <StatusBar translucent backgroundColor="transparent" />
+      <AppContainer
+        onNavigationStateChange={(prev, next, action) => {
+          if (action.routeName === 'Maps' || action.type == 'Navigation/') {
+            StatusBar.setBackgroundColor('transparent');
+          } else {
+            StatusBar.setBackgroundColor('#000');
+          }
+        }}
+      />
+    </React.Fragment>
+  );
 };
 
 export default App;
