@@ -14,6 +14,7 @@ import { WelcomeScreen } from './screens/WelcomeScreen/WelcomeScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import TabBarButton from './components/TabBarButtom';
+import { createStackNavigator } from 'react-navigation-stack';
 
 class HomeScreen extends React.Component {
   render() {
@@ -41,6 +42,7 @@ const TabNavigator = createBottomTabNavigator(
     User: {
       screen: WelcomeScreen,
       navigationOptions: {
+        tabBarOnPress: props => console.log(props),
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-person" color={tintColor} size={26} />
         )
@@ -95,7 +97,21 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
-const AppContainer = createAppContainer(TabNavigator);
+const AppContainer = createAppContainer(
+  createStackNavigator(
+    {
+      TABS: TabNavigator
+      // Detail: null
+    },
+    {
+      headerMode: 'float',
+      defaultNavigationOptions: {
+        headerStyle: { color: '#000', elevation: 0 },
+        headerTitle: 'Traveling'
+      }
+    }
+  )
+);
 const App = () => {
   return <AppContainer />;
 };
