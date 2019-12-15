@@ -1,9 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 
 export class WelcomeScreen extends React.Component {
   
   render() {
-    <Text>Welcome Screen</Text>;
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Welcome!</Text>
+      </View>
+    );
   }
 }
