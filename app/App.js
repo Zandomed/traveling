@@ -7,42 +7,24 @@
  */
 
 import React from 'react';
-import { Text, View } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
-import { WelcomeScreen } from './screens/WelcomeScreen/WelcomeScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
-import TabBarButton from './components/TabBarButtom';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-        {/* <Icon name="bookmark" color={'#586589'} size={24} /> */}
-      </View>
-    );
-  }
-}
-
-class SettingsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import TabBarButton from './components/TabBarButtom';
+import {
+  HomeScreen,
+  LikeScreen,
+  NotificationScreen,
+  UserScreen,
+  HotelDetailScreen
+} from './screens';
 
 const TabNavigator = createBottomTabNavigator(
   {
     User: {
-      screen: WelcomeScreen,
+      screen: UserScreen,
       navigationOptions: {
-        tabBarOnPress: props => console.log(props),
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-person" color={tintColor} size={26} />
         )
@@ -57,7 +39,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Favorite: {
-      screen: SettingsScreen,
+      screen: LikeScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-heart" color={tintColor} size={26} />
@@ -65,7 +47,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Notification: {
-      screen: SettingsScreen,
+      screen: NotificationScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-notifications-outline" color={tintColor} size={26} />
@@ -100,10 +82,11 @@ const TabNavigator = createBottomTabNavigator(
 const AppContainer = createAppContainer(
   createStackNavigator(
     {
-      TABS: TabNavigator
-      // Detail: null
+      TABS: TabNavigator,
+      Detail: HotelDetailScreen
     },
     {
+      initialRouteName: 'TABS',
       headerMode: 'float',
       defaultNavigationOptions: {
         headerStyle: { color: '#000', elevation: 0 },
