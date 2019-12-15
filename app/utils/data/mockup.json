@@ -1,0 +1,39 @@
+{
+  "user": {},
+  "hotels": [
+    {
+      "name": "Woodline Hotel",
+      "location": "Antalya, Turkey",
+      "rating": 5,
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, maiores nesciunt distinctio voluptatem sapiente officia nihil maxime iure quibusdam quasi vel consequatur voluptatibus tenetur culpa quaerat! Voluptatibus illo perspiciatis voluptate.",
+      "benefits": [
+        {
+          "icon": "",
+          "name": "Wi-fi"
+        },
+        {
+          "icon": "",
+          "name": "Food"
+        },
+        {
+          "icon": "",
+          "name": "Gym"
+        },
+        {
+          "icon": "",
+          "name": "Pool"
+        }
+      ],
+      "images": ["", "", ""],
+      "reviews": [
+        {
+          "image": "",
+          "name": "Carlos Albornoz",
+          "review": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, maiores nesciunt distinctio voluptatem sapiente officia nihil maxime iure quibusdam quasi vel consequatur voluptatibus tenetur culpa quaerat! Voluptatibus illo perspiciatis voluptate."
+        }
+      ],
+      "price": "80$",
+      "premium": true
+    }
+  ]
+}
