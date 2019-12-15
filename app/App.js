@@ -9,7 +9,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator, Header } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabBarButton from './components/TabBarButtom';
 import {
@@ -84,7 +84,21 @@ const AppContainer = createAppContainer(
   createStackNavigator(
     {
       TABS: TabNavigator,
-      Detail: HotelDetailScreen
+      Detail: {
+        screen: HotelDetailScreen,
+        navigationOptions: ({ navigation }) => {
+          const title = navigation.getParam('title');
+          return {
+            header: props => <Header {...props}></Header>,
+            headerTitle: title ? title : 'Detalle',
+            headerTitleStyle: { color: '#000' },
+            headerTransparent: true,
+            headerStyle: {
+              marginTop: StatusBar.currentHeight
+            }
+          };
+        }
+      }
     },
     {
       initialRouteName: 'TABS',
@@ -106,13 +120,18 @@ const App = () => {
     <React.Fragment>
       <StatusBar translucent backgroundColor="transparent" />
       <AppContainer
-        onNavigationStateChange={(prev, next, action) => {
-          if (action.routeName === 'Maps' || action.type == 'Navigation/') {
-            StatusBar.setBackgroundColor('transparent');
-          } else {
-            StatusBar.setBackgroundColor('#000');
-          }
-        }}
+        // onNavigationStateChange={(prev, next, action) => {
+        //   // console.log(action);
+        //   if (
+        //     action.routeName === 'Maps' ||
+        //     action.routeName === 'Detail' ||
+        //     action.type == 'Navigation/INIT'
+        //   ) {
+        //     StatusBar.setBackgroundColor('transparent');
+        //   } else {
+        //     // StatusBar.setBackgroundColor('#000');
+        //   }
+        // }}
       />
     </React.Fragment>
   );
