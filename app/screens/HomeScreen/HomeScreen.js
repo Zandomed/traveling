@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, FlatList } from 'react-native';
+import { View, Text, Button, FlatList, Image } from 'react-native';
 import { getHotels } from '../../services/API';
 
 export class HomeScreen extends Component {
@@ -31,10 +31,24 @@ export class HomeScreen extends Component {
     } else {
       return (
         <View>
+          <Image
+            source={require('../../assets/images/Banner.jpg')}
+            style={{ width: '100%', height: 200 }}></Image>
+
           <Text>Hay Hoteles!</Text>
           <FlatList
             data={hotels}
-            renderItem={({ item }) => <Text>{item.name}</Text>}></FlatList>
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item.name}</Text>
+                <Image
+                  source={{
+                    uri:
+                      'https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/uploadimages/38/26/38263980.jpeg'
+                  }}
+                  style={{ width: 200, height: 200 }}></Image>
+              </View>
+            )}></FlatList>
 
           {/* <Button
             onPress={() => {
