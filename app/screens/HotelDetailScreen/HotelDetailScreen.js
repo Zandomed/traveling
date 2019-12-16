@@ -14,8 +14,10 @@ import { getHotelByID } from '../../services/API';
 import { Header } from 'react-navigation-stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import { style } from './HotelDetailStyle';
 
 export class HotelDetailScreen extends Component {
+  /* Confuration of navigator */
   static navigationOptions = ({ navigation }) => {
     return {
       header: props => <Header {...props}></Header>,
@@ -47,15 +49,18 @@ export class HotelDetailScreen extends Component {
   componentDidMount() {
     StatusBar.setBackgroundColor('#000');
     const _hotel = getHotelByID(this.props.navigation.getParam('uid'));
-    console.log(_hotel);
+    // console.log(_hotel);
     this.setState({
       hotel: _hotel
     });
   }
+
   render() {
+    /* Variable */
     const { height } = Dimensions.get('window');
     let rating = [];
     let benefits = [];
+    /* Get Rating  */
     const { hotel } = this.state;
     if (hotel) {
       for (let i = 0; i < hotel.rating; i++) {
@@ -69,16 +74,10 @@ export class HotelDetailScreen extends Component {
           />
         );
       }
-
+      /* Get Benefits */
       benefits = hotel.benefits.map((benefit, i) => {
         return (
-          <View
-            key={i}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
+          <View key={i} style={style.flexCenter}>
             <Icon
               style={{ marginHorizontal: 3 }}
               name={benefit.icon}
@@ -101,8 +100,7 @@ export class HotelDetailScreen extends Component {
           height: '100%'
         }}>
         {!hotel && (
-          <View
-            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={style.flexCenter}>
             <Text>
               No hay Hotel con el ID {this.props.navigation.getParam('uid')}
             </Text>
@@ -111,21 +109,10 @@ export class HotelDetailScreen extends Component {
 
         {hotel && (
           <React.Fragment>
-            <View
-              style={{
-                // position: 'relative',
-                // top: -StatusBar.currentHeight,
-                // padding: 10,
-                height: '45%',
-                // marginBottom: 10,
-                margin: 0,
-                zIndex: 1
-              }}>
+            <View style={style.containerSlider}>
               <SliderBox
                 images={this.state.hotel.images}
                 autoplay={true}
-                // paginationBoxVerticalPadding={20}
-
                 circleLoop
                 disableOnPress
                 sliderBoxHeight={400}
@@ -135,25 +122,10 @@ export class HotelDetailScreen extends Component {
             <View
               style={{ display: 'flex', flexDirection: 'row', height: '55%' }}>
               {/* Content Info */}
-              <View
-                style={{
-                  width: '80%',
-                  height: '100%',
-                  marginTop: 10,
-                  paddingHorizontal: 15
-                }}>
+              <View style={style.containerDetail}>
                 <Text style={{ fontSize: 25 }}>{hotel.name}</Text>
                 <Text style={{ color: '#9C9C9C' }}>{hotel.location}</Text>
-                <View
-                  style={{
-                    marginVertical: 15,
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center'
-                  }}>
-                  {rating}
-                </View>
+                <View style={style.containerRaiting}>{rating}</View>
                 <View>
                   <ScrollView style={{ height: '60%' }}>
                     <Text
@@ -190,30 +162,9 @@ export class HotelDetailScreen extends Component {
                 </View>
               </View>
               {/* Content Benefit */}
-              <View
-                style={{
-                  backgroundColor: '#EFF5F6',
-                  width: '20%',
-                  height: '100%',
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  padding: 5,
-                  paddingBottom: 100,
-                  alignItems: 'center'
-                }}>
-                {benefits}
-              </View>
+              <View style={style.containerBenefits}>{benefits}</View>
             </View>
-            <View
-              style={{
-                position: 'absolute',
-                bottom: 30,
-                right: 30,
-                zIndex: 5,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}>
+            <View style={style.like}>
               <Icon
                 onPress={() => {
                   this.setState({
