@@ -6,23 +6,19 @@
       "name": "Hotel SU & Aqualand",
       "location": "Antalya, Turkey",
       "rating": 5,
-      "descripcion": "Sunis Hotels Hotel SU is perfectly located for both business and leisure guests in Antalya. Offering.",
+      "description": "Sunis Hotels Hotel SU is perfectly located for both business and leisure guests in Antalya. Offering.",
       "benefits": [
         {
-          "icon": "",
+          "icon": "ios-wifi",
           "name": "Wi-fi"
         },
         {
-          "icon": "",
+          "icon": "md-pizza",
           "name": "Food"
         },
         {
-          "icon": "",
+          "icon": "ios-fitness",
           "name": "Gym"
-        },
-        {
-          "icon": "",
-          "name": "Pool"
         }
       ],
       "images": [
@@ -39,22 +35,22 @@
       "name": "Hotel Hafen Hamburg",
       "location": "Hamburg, Germany",
       "rating": 4,
-      "descripcion": "Hotel Hafen Hamburg is a maritime hotel located directly above the famous St. Pauli \"Landungsbrücken\". This \"Pearl in the Port\" stands for tradition, maritime flair and elegance - as well as for unforgettable views of the River Elbe. Our 380 sumptuous rooms, offering all the conveniences you would expect in a first-class hotel. The Port of Hamburg is also ideally suited for meetings, conferences and celebrations of all kinds: all our rooms are equipped with the latest technology and offer magnificent views of the River Elbe and port Bar's legendary cocktails and our intimate maritime \"Bierstube\" bar round off your visit to Hamburg perfectly.",
+      "description": "Hotel Hafen Hamburg is a maritime hotel located directly above the famous St. Pauli \"Landungsbrücken\". This \"Pearl in the Port\" stands for tradition, maritime flair and elegance - as well as for unforgettable views of the River Elbe. Our 380 sumptuous rooms, offering all the conveniences you would expect in a first-class hotel. The Port of Hamburg is also ideally suited for meetings, conferences and celebrations of all kinds: all our rooms are equipped with the latest technology and offer magnificent views of the River Elbe and port Bar's legendary cocktails and our intimate maritime \"Bierstube\" bar round off your visit to Hamburg perfectly.",
       "benefits": [
         {
-          "icon": "",
+          "icon": "ios-wifi",
           "name": "Wi-fi"
         },
         {
-          "icon": "",
+          "icon": "md-pizza",
           "name": "Food"
         },
         {
-          "icon": "",
+          "icon": "md-beer",
           "name": "Bar"
         },
         {
-          "icon": "",
+          "icon": "md-tv",
           "name": "TV"
         }
       ],

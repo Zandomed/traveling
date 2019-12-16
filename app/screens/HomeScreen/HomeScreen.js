@@ -31,13 +31,12 @@ export class HomeScreen extends Component {
       hotels: getHotels()
     });
   }
-  componentDidUpdate(){
+  componentDidUpdate() {
     StatusBar.setBackgroundColor('transparent');
-
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const { hotels } = this.state;
 
     if (hotels.length == 0) {
@@ -115,7 +114,8 @@ export class HomeScreen extends Component {
                   activeOpacity={0.8}
                   onPress={() =>
                     this.props.navigation.navigate('Detail', {
-                      title: item.name
+                      title: item.name,
+                      uid: item.uid
                     })
                   }>
                   <ImageBackground
@@ -165,13 +165,6 @@ export class HomeScreen extends Component {
                   </ImageBackground>
                 </TouchableOpacity>
               )}></FlatList>
-
-            {/* <Button
-            onPress={() => {
-              this.props.navigation.navigate('Detail');
-            }}
-            title={'Detail'}></Button>
-          <Icon name="bookmark" color={'#586589'} size={24} /> */}
           </View>
         </SafeAreaView>
       );
