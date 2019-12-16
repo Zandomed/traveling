@@ -103,7 +103,7 @@ export class HomeScreen extends Component {
             {/* <Text>Hay Hoteles!</Text> */}
             <FlatList
               data={hotels}
-              style={{ marginHorizontal: 15, width: 'auto' }}
+              style={{ marginHorizontal: 15, marginTop: 30, width: 'auto' }}
               horizontal
               ItemSeparatorComponent={() => (
                 <View style={{ paddingHorizontal: 15 }}></View>

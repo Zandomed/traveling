@@ -6,7 +6,8 @@ import {
   Platform,
   SafeAreaView,
   Dimensions,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  ScrollView
 } from 'react-native';
 import { SliderBox } from 'react-native-image-slider-box';
 import { getHotelByID } from '../../services/API';
@@ -38,7 +39,8 @@ export class HotelDetailScreen extends Component {
       hotel: null,
       isShowMore: false,
       showMoreButton: false,
-      numberLines: 7
+      numberLines: 10,
+      isLike: false
     };
   }
 
@@ -153,31 +155,38 @@ export class HotelDetailScreen extends Component {
                   {rating}
                 </View>
                 <View>
-                  <Text
-                    numberOfLines={this.state.numberLines}
-                    onTextLayout={({ nativeEvent: { lines } }) => {
-                      this.setState({
-                        showMoreButton: lines.length > this.state.numberLines
-                      });
-                    }}>
-                    {hotel.description}
-                  </Text>
-                  {this.state.showMoreButton && (
-                    <TouchableWithoutFeedback
-                      onPress={() => {
+                  <ScrollView style={{ height: '60%' }}>
+                    <Text
+                      numberOfLines={this.state.numberLines}
+                      onTextLayout={({ nativeEvent: { lines } }) => {
                         this.setState({
-                          isShowMore: !this.state.isShowMore,
-                          numberLines: this.state.isShowMore ? 7 : 0
+                          showMoreButton: lines.length > this.state.numberLines
                         });
                       }}>
-                      <View
-                        style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
-                        <Text style={{ fontWeight: 'bold', color: '#7B8B95' }}>
-                          {this.state.isShowMore ? 'hide' : 'read more'}
-                        </Text>
-                      </View>
-                    </TouchableWithoutFeedback>
-                  )}
+                      {hotel.description}
+                    </Text>
+
+                    {this.state.showMoreButton && (
+                      <TouchableWithoutFeedback
+                        onPress={() => {
+                          this.setState({
+                            isShowMore: !this.state.isShowMore,
+                            numberLines: this.state.isShowMore ? 7 : 0
+                          });
+                        }}>
+                        <View
+                          style={{
+                            paddingHorizontal: 20,
+                            paddingVertical: 10
+                          }}>
+                          <Text
+                            style={{ fontWeight: 'bold', color: '#7B8B95' }}>
+                            {this.state.isShowMore ? 'hide' : 'read more'}
+                          </Text>
+                        </View>
+                      </TouchableWithoutFeedback>
+                    )}
+                  </ScrollView>
                 </View>
               </View>
               {/* Content Benefit */}
@@ -194,6 +203,27 @@ export class HotelDetailScreen extends Component {
                 }}>
                 {benefits}
               </View>
+            </View>
+            <View
+              style={{
+                position: 'absolute',
+                bottom: 30,
+                right: 30,
+                zIndex: 5,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}>
+              <Icon
+                onPress={() => {
+                  this.setState({
+                    isLike: !this.state.isLike
+                  });
+                }}
+                name="md-heart"
+                size={35}
+                color={this.state.isLike ? 'red' : '#B3B8BC'}
+              />
             </View>
           </React.Fragment>
         )}

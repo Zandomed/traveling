@@ -62,6 +62,41 @@
       "cover": "https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/uploadimages/27/99/27997968.jpeg",
       "price": "86$",
       "premium": false
+    },
+    {
+      "uid": 3,
+      "name": "Sonesta Cairo Hotel Tower & Casino",
+      "location": "Cairo, Egypt",
+      "rating": 5,
+      "description": "Sonesta Cairo & Casino features a full-service spa and wellness centre, a casino and five on-site restaurants. The luxury hotel is just 10 minutes from Cairo International Airport in the Heliopolis business district. There are 409 rooms and suites at this hotel, each of which boasts satellite TV, a mini bar, individual climate control and writing desks. Rooms are equipped with electronic door locks for added security. Guests of Sonesta Cairo Hotel Tower & Casino enjoy access to an outdoor swimming pool with a poolside bar, a sauna and a fully-equipped gym. Additional features include complimentary airport shuttle services, 24-hour reception, babysitting services and complimentary Wi-Fi. The hotel is home to five restaurants, serving a variety of international cuisine, three lounge bars, a nightclub and a French cafe. From the hotel it is less than two kilometres to Cairo Conference Centre, and 20 kilometres to the pyramids.",
+      "benefits": [
+        {
+          "icon": "ios-wifi",
+          "name": "Wi-fi"
+        },
+        {
+          "icon": "md-pizza",
+          "name": "Food"
+        },
+        {
+          "icon": "md-beer",
+          "name": "Bar"
+        },
+        {
+          "icon": "md-tv",
+          "name": "TV"
+        }
+      ],
+      "price": "65$",
+
+      "images": [
+        "https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/partnerimages/26/10/261095592.jpeg",
+        "https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/partnerimages/36/13/361321786.jpeg",
+        "https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/partnerimages/66/85/66858674.jpeg"
+      ],
+      "cover": "https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/partnerimages/66/85/66858678.jpeg",
+
+      "premium": true
     }
   ]
 }
